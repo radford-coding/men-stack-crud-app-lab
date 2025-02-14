@@ -9,7 +9,7 @@
     <h1>All Echoes</h1>
     <ul>
         <% echoes.forEach(echo => { %>
-            <li><%= echo.name %></li>
+            <li><a href="/echoes/<%= echo._id %>"><%= echo.name %></a></li>
         <% }); %>
     </ul>
 </body>

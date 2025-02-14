@@ -34,12 +34,18 @@ app.get('/echoes/new', (req, res) => {
     res.render('./echoes/new.ejs');
 });
 
+// GET /echoes/:id
+app.get('/echoes/:id', async (req, res) => {
+    const foundEcho = await Echo.findById(req.params.id);
+    res.render('echoes/show.ejs', { echo: foundEcho });
+});
+
 // POST /echoes
 app.post('/echoes', async (req, res) => {
     req.body.isEnemy = req.body.isEnemy === 'on' ? true : false;
     console.log(req.body);
     await Echo.create(req.body);
-    res.redirect('/echoes/new');
+    res.redirect('/echoes');
 });
 
 
