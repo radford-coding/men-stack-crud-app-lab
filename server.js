@@ -21,7 +21,7 @@ const Echo = require('./models/echo');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
-// app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* ----ROUTES---- */
 
@@ -34,7 +34,6 @@ app.get('/', async (req, res) => { // async for database connections
 app.get('/echoes', async (req, res) => {
     const allEchoes = await Echo.find({});
     res.render('echoes/index.ejs', { echoes: allEchoes });
-    console.log(path.join(__dirname, 'public'));
 });
 
 // GET /echoes/new
