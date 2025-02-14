@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('../../views/partials/html-head') %>
     <title>Echoes Index</title>
 </head>
 <body>
+    <%- include('../../views/partials/nav-start') %>
+    <a href="echoes/new">Create a new Echo</a>
+    <%- include('../../views/partials/nav-end') %>
     <h1>All Echoes</h1>
     <ul>
         <% echoes.forEach(echo => { %>

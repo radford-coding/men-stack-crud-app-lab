@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('../../views/partials/html-head') %>
     <title><%= echo.name %></title>
 </head>
 <body>
+    <%- include('../../views/partials/nav-start') %>
+    <a href="/echoes/<%= echo._id %>/edit">Edit <%= echo.name %></a>
+    <%- include('../../views/partials/nav-end') %>
     <h1>Here is <%= echo.name %></h1>
     <% if (echo.isEnemy) { %>
         <p>This echo is found by defeating an enemy.</p>
@@ -15,7 +14,5 @@
     <form action="/echoes/<%= echo._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= echo.name %></button>
     </form>
-    <a href="/echoes/<%= echo._id %>/edit">Edit <%= echo.name %></a>
-    <a href="/echoes">Back to all Echoes</a>
 </body>
 </html>

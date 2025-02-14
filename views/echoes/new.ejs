@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Fruit</title>
+<%- include('../../views/partials/html-head') %>
+    <title>Create an Echo</title>
 </head>
 
 <body>
+    <%- include('../../views/partials/nav-start') %>
+    <%- include('../../views/partials/nav-end') %>
     <h1>Create a new echo</h1>
     <form action="/echoes" method="POST">
         <fieldset aria-labelledby="new-echo-legend">
             <legend id="new-echo-legend">New Echo</legend>
             <div>
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" required>
             </div>
             <div>
                 <label for="triPowerCost">Tri-Power cost?</label>
-                <input type="number" name="triPowerCost" id="triPowerCost">
+                <input type="number" name="triPowerCost" id="triPowerCost" required>
             </div>
             <div>
                 <label for="location">Location?</label>

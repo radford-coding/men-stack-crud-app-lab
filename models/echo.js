@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const echoSchema = new mongoose.Schema({
-    name: String,
-    triPowerCost: Number,
+    name: { type: String, required: true },
+    triPowerCost: { type: Number, required: true },
     location: String,
     howToGet: String,
     isEnemy: Boolean,
+    // image: String,
 });
 
 const Echo = mongoose.model('Echo', echoSchema);

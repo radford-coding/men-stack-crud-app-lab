@@ -7,11 +7,11 @@ const app = express();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
+const path = require('path');
 
 /* ----MIDDLEWARE---- */
 
 mongoose.connect(process.env.MONGODB_URI);
-
 mongoose.connection.on('connected', () => {
     console.log(`connected to mongodb ${mongoose.connection.name}.`);
 });
@@ -21,7 +21,7 @@ const Echo = require('./models/echo');
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(morgan('dev'));
-
+// app.use(express.static(path.join(__dirname, '/public')));
 
 /* ----ROUTES---- */
 
@@ -34,6 +34,7 @@ app.get('/', async (req, res) => { // async for database connections
 app.get('/echoes', async (req, res) => {
     const allEchoes = await Echo.find({});
     res.render('echoes/index.ejs', { echoes: allEchoes });
+    console.log(path.join(__dirname, 'public'));
 });
 
 // GET /echoes/new

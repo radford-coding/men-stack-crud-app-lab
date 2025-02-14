@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<%- include('../../views/partials/html-head') %>
     <title>Edit <%= echo.name %></title>
 </head>
 
 <body>
+    <%- include('../../views/partials/nav-start') %>
+    <%- include('../../views/partials/nav-end') %>
     <h1>Edit <%= echo.name %></h1>
     <form action="/echoes/<%= echo._id %>?_method=PUT" method="POST">
         <fieldset aria-labelledby="edit-echo-legend">
             <legend id="edit-echo-legend">Edit Echo</legend>
             <div>
                 <label for="name">New name:</label>
-                <input type="text" name="name" id="name" value="<%= echo.name %>">
+                <input type="text" name="name" id="name" value="<%= echo.name %>" required>
             </div>
             <div>
                 <label for="triPowerCost">New Tri-Power cost:</label>
-                <input type="number" name="triPowerCost" id="triPowerCost" value="<%= echo.triPowerCost %>">
+                <input type="number" name="triPowerCost" id="triPowerCost" value="<%= echo.triPowerCost %>" required>
             </div>
             <div>
                 <label for="location">New location:</label>
