@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Fruit</title>
+</head>
+<body>
+    <h1>Create a new echo</h1>
+    <form action="/echoes" method="POST">
+        <fieldset aria-labelledby="new-echo-legend">
+            <legend id="new-echo-legend">New Echo</legend>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <label for="triPowerCost">Tri-Power cost?</label>
+                <input type="number" name="triPowerCost" id="triPowerCost">
+            </div>
+            <div>
+                <label for="location">Location?</label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div>
+                <label for="howToGet">How to get?</label>
+                <input type="text" name="howToGet" id="howToGet">
+            </div>
+            <div>
+                <label for="isEnemy">Is this an enemy echo? (If not, it's an object)</label>
+                <input type="checkbox" name="isEnemy" id="isEnemy">
+            </div>
+            <div>
+                <button type="submit">Add echo</button>
+            </div>
+
+        </fieldset>
+    </form>
+</body>
+</html>
