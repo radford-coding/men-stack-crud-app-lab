@@ -22,6 +22,13 @@ app.get('/', async (req, res) => { // async for database connections
     res.render('index.ejs');
 });
 
+// GET /echoes
+app.get('/echoes', async (req, res) => {
+    const allEchoes = await Echo.find({});
+    console.log(`Logging all echoes:\n${allEchoes}`);
+    res.render('echoes/index.ejs', { echoes: allEchoes });
+});
+
 // GET /echoes/new
 app.get('/echoes/new', (req, res) => {
     res.render('./echoes/new.ejs');
