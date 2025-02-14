@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-// won't actually create the database until there's data added into it
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -13,18 +12,27 @@ mongoose.connection.on('connected', () => {
 
 const Echo = require('./models/echo');
 
-/*  */
+app.use(express.urlencoded({ extended: false }));
+
+
+/* ----ROUTES---- */
 
 // GET /
-
 app.get('/', async (req, res) => { // async for database connections
     res.render('index.ejs');
 });
 
 // GET /echoes/new
-
 app.get('/echoes/new', (req, res) => {
     res.render('./echoes/new.ejs');
+});
+
+// POST /echoes
+app.post('/echoes', async (req, res) => {
+    req.body.isEnemy = req.body.isEnemy === 'on' ? true : false;
+    console.log(req.body);
+    await Echo.create(req.body);
+    res.redirect('/echoes/new');
 });
 
 
