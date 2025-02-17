@@ -5,12 +5,31 @@
     <%- include('../../views/partials/nav-start') %>
     <a href="/echoes/<%= echo._id %>/edit">Edit <%= echo.name %></a>
     <%- include('../../views/partials/nav-end') %>
-    <h1>Here is <%= echo.name %></h1>
+    <!-- <h1>Here is <%= echo.name %></h1> -->
     <% if (echo.isEnemy) { %>
         <p>This echo is found by defeating an enemy.</p>
     <% } else { %>
         <p>This echo is an object found in the game.</p>
     <% }; %>
+    <table>
+        <caption>
+            <%= echo.name %>
+        </caption>
+        <thead>
+            <th></th>
+            <th>Echo</th>
+            <th>Tri-Power Cost</th>
+            <th>How to Get</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td><%= echo.name %></td>
+                <td><%= echo.triPowerCost %></td>
+                <td><%= echo.location %><br><%= echo.howToGet %></td>
+            </tr>
+        </tbody>
+    </table>
     <form action="/echoes/<%= echo._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= echo.name %></button>
     </form>

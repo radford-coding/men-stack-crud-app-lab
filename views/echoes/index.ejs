@@ -5,11 +5,27 @@
     <%- include('../../views/partials/nav-start') %>
     <a href="echoes/new">Create a new Echo</a>
     <%- include('../../views/partials/nav-end') %>
-    <h1>All Echoes</h1>
-    <ul>
-        <% echoes.forEach(echo => { %>
-            <li><a href="/echoes/<%= echo._id %>"><%= echo.name %></a></li>
-        <% }); %>
-    </ul>
+    
+    <table>
+        <caption>
+            All Echoes
+        </caption>
+        <thead>
+            <th></th>
+            <th>Echo</th>
+            <th>Tri-Power Cost</th>
+            <th>How to Get</th>
+        </thead>
+        <tbody>
+            <% echoes.forEach(echo => { %>
+                <tr>
+                    <td></td>
+                    <td><a href="/echoes/<%= echo._id %>"><%= echo.name %></a></td>
+                    <td><%= echo.triPowerCost %></td>
+                    <td><%= echo.location %><hr><%= echo.howToGet %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>

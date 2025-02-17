@@ -76,4 +76,4 @@ app.delete('/echoes/:id', async (req, res) => {
 
 
 
-const listener = app.listen(3000, () => console.log(`listening on part ${listener.address().port}`));
+const listener = app.listen(3000, () => console.log(`listening on port ${listener.address().port}`));
