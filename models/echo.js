@@ -6,7 +6,6 @@ const echoSchema = new mongoose.Schema({
     location: String,
     howToGet: String,
     isEnemy: Boolean,
-    // image: String,
 });
 
 const Echo = mongoose.model('Echo', echoSchema);

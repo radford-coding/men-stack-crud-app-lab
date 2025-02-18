@@ -1,35 +1,107 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&display=swap");
 
+* {
+    /* margin: 0; */
+    padding: 0;
+}
+
 body {
-    background-color: lightgoldenrodyellow;
+    --bg: rgb(47, 47, 47);
+    --bg2: rgb(60, 60, 60);
+    --txt: rgb(234, 234, 234);
+    --gray: gray;
+    background-color: var(--bg);
+    color: var(--txt);
 }
 
 table {
     margin: 0 auto;
     border-collapse: collapse;
-    border: 1px solid black;
 }
 
-tbody > tr:nth-child(even) {
-    background-color: aqua;
+table a {
+    color: var(--txt);
+}
+
+table,
+tr {
+    border: 2px solid darkgray;
+}
+
+tbody>tr:nth-child(even) {
+    background-color: var(--bg2);
+}
+
+th,
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
 }
 
 caption {
     caption-side: top;
     padding: 10px;
+    font-weight: bold;
 }
 
 nav {
-    background-color: white;
+    background-color: var(--bg2);
     display: flex;
+    flex-flow: row nowrap;
 }
 
-nav > a {
+nav>a:last-child {
+    margin-left: auto;
+}
+
+nav>a {
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: var(--bg);
+    color: var(--txt);
     padding: 1em 1.5em;
+    margin: 5px 5px;
+}
+
+nav>a:hover {
+    background-color: green;
 }
 
 hr {
     border: none;
-    border-top: 1px dotted black;
+    border-top: 1px dotted darkgray;
+}
+
+form>*>* {
+    margin: 5px;
+}
+
+button {
+    padding: 5px;
+}
+
+button:hover {
+    background-color: green;
+}
+
+.splash {
+    background: no-repeat center url('../images/splash.png');
+    height: 90vh;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.splash>* {
+    margin: 5px;
+    padding: 20px;
+    background-color: var(--bg);
+    text-align: center;
+}
+
+.splash a {
+    color: var(--txt);
 }

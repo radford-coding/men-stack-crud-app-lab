@@ -50,6 +50,8 @@ app.get('/echoes/:id', async (req, res) => {
 // POST /echoes
 app.post('/echoes', async (req, res) => {
     req.body.isEnemy = req.body.isEnemy === 'on' ? true : false;
+    req.body.name = makeCapitalized(req.body.name);
+    req.body.location = makeCapitalized(req.body.location);
     await Echo.create(req.body);
     res.redirect('/echoes');
 });
@@ -63,6 +65,8 @@ app.get('/echoes/:id/edit', async (req, res) => {
 // PUT /echoes/:id
 app.put('/echoes/:id', async (req, res) => {
     req.body.isEnemy = req.body.isEnemy === 'on' ? true : false;
+    req.body.name = makeCapitalized(req.body.name);
+    req.body.location = makeCapitalized(req.body.location);
     await Echo.findByIdAndUpdate(req.params.id, req.body);
     res.redirect(`/echoes/${req.params.id}`);
 });
@@ -73,7 +77,8 @@ app.delete('/echoes/:id', async (req, res) => {
     res.redirect('/echoes');
 });
 
-
-
+const makeCapitalized = (str) => {
+    return str.toLowerCase().split(' ').map((s) => s.charAt(0).toUpperCase() + s.substring(1)).join(' ');
+};
 
 const listener = app.listen(3000, () => console.log(`listening on port ${listener.address().port}`));
